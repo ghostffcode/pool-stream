@@ -1,0 +1,51 @@
+query MyPools($address: ID!) {
+  bee(id: $address) {
+    createdAt
+    isQueenHives {
+      hive {
+        id
+        description
+      }
+    }
+    hives {
+      hive {
+        id
+        description
+      }
+    }
+  }
+}
+
+query getHive($address: ID!) {
+  hive(id: $address) {
+    id
+    description
+    queens {
+      address {
+        id
+      }
+    }
+    bees(orderBy: createdAt) {
+      id
+      rate
+      totalPayouts
+      address {
+        id
+      }
+      works {
+        id
+      }
+    }
+    works(orderBy: createdAt, first: 100) {
+      id
+      amount
+      reasonPtr
+      createdAt
+      hiveBee {
+        address {
+          id
+        }
+      }
+    }
+  }
+}

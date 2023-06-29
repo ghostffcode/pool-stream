@@ -1,15 +1,15 @@
 {
-  "31337": [
+  "10": [
     {
-      "name": "localhost",
-      "chainId": "31337",
+      "name": "truffleDashboard",
+      "chainId": "10",
       "contracts": {
-        "YourContract": {
-          "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+        "HiveFactory": {
+          "address": "0x8Ba9e56a83e06520A11Bc470428A0F33Eddf2569",
           "abi": [
             {
               "inputs": [],
-              "stateMutability": "payable",
+              "stateMutability": "nonpayable",
               "type": "constructor"
             },
             {
@@ -18,52 +18,167 @@
                 {
                   "indexed": false,
                   "internalType": "address",
-                  "name": "sender",
+                  "name": "hive",
                   "type": "address"
                 },
                 {
                   "indexed": false,
                   "internalType": "string",
-                  "name": "purpose",
+                  "name": "description",
                   "type": "string"
                 }
               ],
-              "name": "SetPurpose",
+              "name": "HiveCreated",
               "type": "event"
             },
             {
-              "stateMutability": "payable",
-              "type": "fallback"
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "hive",
+                  "type": "address"
+                },
+                {
+                  "indexed": false,
+                  "internalType": "address",
+                  "name": "by",
+                  "type": "address"
+                }
+              ],
+              "name": "HiveImplementationUpdated",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "previousOwner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnershipTransferStarted",
+              "type": "event"
+            },
+            {
+              "anonymous": false,
+              "inputs": [
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "previousOwner",
+                  "type": "address"
+                },
+                {
+                  "indexed": true,
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "OwnershipTransferred",
+              "type": "event"
             },
             {
               "inputs": [],
-              "name": "purpose",
-              "outputs": [
-                {
-                  "internalType": "string",
-                  "name": "",
-                  "type": "string"
-                }
-              ],
-              "stateMutability": "view",
+              "name": "acceptOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
               "type": "function"
             },
             {
               "inputs": [
                 {
                   "internalType": "string",
-                  "name": "newPurpose",
+                  "name": "descriptionPtr",
                   "type": "string"
                 }
               ],
-              "name": "setPurpose",
+              "name": "createHive",
               "outputs": [],
               "stateMutability": "nonpayable",
               "type": "function"
             },
             {
-              "stateMutability": "payable",
-              "type": "receive"
+              "inputs": [],
+              "name": "implementationAddress",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "owner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "pendingOwner",
+              "outputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "renounceOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "newOwner",
+                  "type": "address"
+                }
+              ],
+              "name": "transferOwnership",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "contract HiveImplementation",
+                  "name": "newHive",
+                  "type": "address"
+                }
+              ],
+              "name": "updateImplementation",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
             }
           ]
         }
