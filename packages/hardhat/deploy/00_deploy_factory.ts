@@ -29,16 +29,16 @@ const contractDeploy: DeployFunction = async ({
 
   // const Implementation = await ethers.getContract('Implementation', deployer)
 
-  await deploy('Factory', {
+  await deploy('HiveFactory', {
     from: deployer,
-    args: [40],
+    // args: [],
     log: true,
     autoMine: true,
     waitConfirmations,
   })
 
   // Getting a previously deployed contract
-  const Factory = await ethers.getContract('Factory', deployer)
+  const HiveFactory = await ethers.getContract('HiveFactory', deployer)
 
   // Verify from the command line by running `yarn verify`
 
@@ -58,4 +58,4 @@ const contractDeploy: DeployFunction = async ({
 }
 
 export default contractDeploy
-contractDeploy.tags = ['Factory']
+contractDeploy.tags = ['HiveFactory']
